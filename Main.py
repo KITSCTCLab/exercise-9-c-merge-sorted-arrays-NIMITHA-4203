@@ -1,6 +1,6 @@
 from typing import List
 
-def merge(nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+def merge_sort(nums1: List[int], m: int, nums2: List[int], n: int) -> None:
   x = nums1[0:m+1]
   y = nums2[0:n+1]
   nums1 = x + y
@@ -53,5 +53,5 @@ for item in input().split(', '):
   nums2.append(int(item))
 m = int(input())
 n = int(input())
-merge(nums1, m, nums2, n)
+merge_sort(nums1, m, nums2, n)
 print(nums1)
