@@ -1,14 +1,17 @@
 from typing import List
 
-def merge_sort(nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+def merge(nums1: List[int], m: int, nums2: List[int], n: int) -> None:
   x = nums1[0:m+1]
   y = nums2[0:n+1]
   nums1 = x + y
+  nums1 = merge_sort(nums1)
   
-  if len(nums1) > 1:
-        mid = len(nums1) // 2
-        left = nums1[:mid]
-        right = nums1[mid:]
+  
+def merge_sort(myList) -> None:
+  if len(myList) > 1:
+        mid = len(myList) // 2
+        left = myList[:mid]
+        right = myList[mid:]
 
         # Recursive call on each half
         merge_sort(left)
@@ -24,25 +27,28 @@ def merge_sort(nums1: List[int], m: int, nums2: List[int], n: int) -> None:
         while i < len(left) and j < len(right):
             if left[i] <= right[j]:
               # The value from the left half has been used
-              nums1[k] = left[i]
+              myList[k] = left[i]
               # Move the iterator forward
               i += 1
             else:
-                nums1[k] = right[j]
+                myList[k] = right[j]
                 j += 1
             # Move to the next slot
             k += 1
 
         # For all the remaining values
         while i < len(left):
-            nums1[k] = left[i]
+            myList[k] = left[i]
             i += 1
             k += 1
 
         while j < len(right):
-            nums1[k]=right[j]
+            myList[k]=right[j]
             j += 1
             k += 1
+  return myList
+
+
 
 # Do not change the following code
 nums1 = []
